@@ -9,7 +9,7 @@ Summary:	PAR::Packer - PAR Packager
 #Summary(pl.UTF-8):	
 Name:		perl-PAR-Packer
 Version:	0.982
-Release:	1
+Release:	2
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
@@ -33,6 +33,15 @@ stand-alone executables, perl scripts and PAR files.
 
 # %description -l pl.UTF-8
 # TODO
+
+%package tkpp
+Summary:	tkpp - frontend to pp written in Perl/Tk
+Group:		Development/Tools
+Requires:	%{name} = %{version}-%{release}
+
+%description tkpp
+Tkpp is a GUI frontend to pp, which can turn perl scripts into stand-alone
+PAR files, perl scripts or executables.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
@@ -58,8 +67,13 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README TODO
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/p*
 %{perl_vendorlib}/*.pm
 %{perl_vendorlib}/PAR/*
 %{perl_vendorlib}/App/Packer/*
-%{_mandir}/man?/*
+%{_mandir}/man3/*
+%{_mandir}/man1/p*
+
+%files tkpp
+%attr(755,root,root) %{_bindir}/tkpp
+%{_mandir}/man1/tkpp*
