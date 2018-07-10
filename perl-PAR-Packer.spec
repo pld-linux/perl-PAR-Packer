@@ -8,13 +8,13 @@
 Summary:	PAR::Packer - PAR Packager
 #Summary(pl.UTF-8):	
 Name:		perl-PAR-Packer
-Version:	0.991
-Release:	3
+Version:	1.045
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/PAR/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	dcc41e19cedf917ffcb8acb3a97d1d1d
+# Source0-md5:	a3333754b0112ee8fe80083042b89a3b
 URL:		http://search.cpan.org/dist/PAR-Packer/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -53,7 +53,7 @@ PAR files, perl scripts or executables.
 	CC="%{__cc}" \
 	OPTIMIZE="%{rpmcflags}"
 
-%{?with_tests:%{__make} test}
+%{?with_tests:%{__make} -j1 test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -66,7 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README TODO
+%doc AUTHORS README
 %attr(755,root,root) %{_bindir}/p*
 %{perl_vendorlib}/*.pm
 %{perl_vendorlib}/PAR/*
