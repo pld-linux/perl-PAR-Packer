@@ -61,13 +61,15 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} pure_install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+mv $RPM_BUILD_ROOT%{_bindir}/{,par-}pp
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS README
-%attr(755,root,root) %{_bindir}/p*
+%attr(755,root,root) %{_bindir}/par*
 %{perl_vendorlib}/*.pm
 %{perl_vendorlib}/PAR/*
 %{perl_vendorlib}/App/Packer/*
