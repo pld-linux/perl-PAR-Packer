@@ -20,6 +20,7 @@ BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
 BuildRequires:	perl-Archive-Zip >= 1
 BuildRequires:	perl-Getopt-ArgvFile >= 1.07
+BuildRequires:	perl-IPC-Run3
 BuildRequires:	perl-Module-ScanDeps >= 0.78
 BuildRequires:	perl-PAR >= 1.014
 BuildRequires:	perl-PAR-Dist >= 0.22
