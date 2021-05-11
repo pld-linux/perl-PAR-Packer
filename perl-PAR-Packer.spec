@@ -27,6 +27,8 @@ BuildRequires:	perl-PAR-Dist >= 0.22
 %endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		_enable_debug_packages	0
+
 %description
 This module implements the App::Packer::Backend interface, for generating
 stand-alone executables, perl scripts and PAR files.
