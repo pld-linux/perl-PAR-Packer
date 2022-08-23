@@ -8,12 +8,13 @@ Summary:	PAR::Packer - PAR Packager
 #Summary(pl.UTF-8):	
 Name:		perl-PAR-Packer
 Version:	1.045
-Release:	7
+Release:	8
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/PAR/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	a3333754b0112ee8fe80083042b89a3b
+Patch0:		x32.patch
 URL:		http://search.cpan.org/dist/PAR-Packer/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -47,6 +48,7 @@ PAR files, perl scripts or executables.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
+%patch0 -p1
 
 %build
 %{__perl} Makefile.PL \

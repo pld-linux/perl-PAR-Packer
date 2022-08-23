@@ -1,0 +1,11 @@
+--- PAR-Packer-1.045/myldr/find_files_to_embed/ldd.pl.orig	2017-10-10 15:34:51.000000000 +0200
++++ PAR-Packer-1.045/myldr/find_files_to_embed/ldd.pl	2022-08-23 14:33:56.099235502 +0200
+@@ -18,7 +18,7 @@
+     }
+     else
+     {
+-        *is_system_lib = sub { shift =~ m{^(?:/usr)?/lib(?:32|64)?/} };
++        *is_system_lib = sub { shift =~ m{^(?:/usr)?/lib(?:32|64|x32)?/} };
+     }
+ 
+     my $dlls = ldd($par); 
